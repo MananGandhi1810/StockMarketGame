@@ -1,3 +1,2 @@
 negative price
 share suspend
-currency change
