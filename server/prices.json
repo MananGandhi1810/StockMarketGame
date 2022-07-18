@@ -1,0 +1,26 @@
+[
+    {
+        "name": "Wockhardt",
+        "price": "20"
+    },
+    {
+        "name": "HDFCBank",
+        "price": "25"
+    },
+    {
+        "name": "ONGC",
+        "price": "40"
+    },
+    {
+        "name": "TISCO",
+        "price": "55"
+    },
+    {
+        "name": "Reliance",
+        "price": "75"
+    },
+    {
+        "name": "Infosys",
+        "price": "80"
+    }
+]

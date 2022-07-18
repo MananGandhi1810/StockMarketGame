@@ -1,0 +1,216 @@
+{
+    "cards": [
+        {
+            "shareName": "Wockhardt",
+            "change": "+5"
+        },
+        {
+            "shareName": "Wockhardt",
+            "change": "+10"
+        },
+        {
+            "shareName": "Wockhardt",
+            "change": "-5"
+        },
+        {
+            "shareName": "Wockhardt",
+            "change": "-10"
+        },
+        {
+            "shareName": "ONGC",
+            "change": "+5"
+        },
+        {
+            "shareName": "ONGC",
+            "change": "+10"
+        },
+        {
+            "shareName": "ONGC",
+            "change": "+15"
+        },
+        {
+            "shareName": "ONGC",
+            "change": "-5"
+        },
+        {
+            "shareName": "ONGC",
+            "change": "-10"
+        },
+        {
+            "shareName": "ONGC",
+            "change": "-15"
+        },
+        {
+            "shareName": "TISCO",
+            "change": "+5"
+        },
+        {
+            "shareName": "TISCO",
+            "change": "+10"
+        },
+        {
+            "shareName": "TISCO",
+            "change": "+15"
+        },
+        {
+            "shareName": "TISCO",
+            "change": "-5"
+        },
+        {
+            "shareName": "TISCO",
+            "change": "-10"
+        },
+        {
+            "shareName": "TISCO",
+            "change": "-15"
+        },
+        {
+            "shareName": "HDFCBank",
+            "change": "+5"
+        },
+        {
+            "shareName": "HDFCBank",
+            "change": "+10"
+        },
+        {
+            "shareName": "HDFCBank",
+            "change": "+15"
+        },
+        {
+            "shareName": "HDFCBank",
+            "change": "+20"
+        },
+        {
+            "shareName": "HDFCBank",
+            "change": "-5"
+        },
+        {
+            "shareName": "HDFCBank",
+            "change": "-10"
+        },
+        {
+            "shareName": "HDFCBank",
+            "change": "-15"
+        },
+        {
+            "shareName": "HDFCBank",
+            "change": "-20"
+        },
+        {
+            "shareName": "Reliance",
+            "change": "+5"
+        },
+        {
+            "shareName": "Reliance",
+            "change": "+10"
+        },
+        {
+            "shareName": "Reliance",
+            "change": "+15"
+        },
+        {
+            "shareName": "Reliance",
+            "change": "+20"
+        },
+        {
+            "shareName": "Reliance",
+            "change": "+25"
+        },
+        {
+            "shareName": "Reliance",
+            "change": "-5"
+        },
+        {
+            "shareName": "Reliance",
+            "change": "-10"
+        },
+        {
+            "shareName": "Reliance",
+            "change": "-15"
+        },
+        {
+            "shareName": "Reliance",
+            "change": "-20"
+        },
+        {
+            "shareName": "Reliance",
+            "change": "-25"
+        },
+        {
+            "shareName": "Infosys",
+            "change": "+5"
+        },
+        {
+            "shareName": "Infosys",
+            "change": "+10"
+        },
+        {
+            "shareName": "Infosys",
+            "change": "+15"
+        },
+        {
+            "shareName": "Infosys",
+            "change": "+20"
+        },
+        {
+            "shareName": "Infosys",
+            "change": "+25"
+        },
+        {
+            "shareName": "Infosys",
+            "change": "+30"
+        },
+        {
+            "shareName": "Infosys",
+            "change": "-5"
+        },
+        {
+            "shareName": "Infosys",
+            "change": "-10"
+        },
+        {
+            "shareName": "Infosys",
+            "change": "-15"
+        },
+        {
+            "shareName": "Infosys",
+            "change": "-20"
+        },
+        {
+            "shareName": "Infosys",
+            "change": "-25"
+        },
+        {
+            "shareName": "Infosys",
+            "change": "-30"
+        },
+        {
+            "shareName": "Loan Stock Mature",
+            "change": "Collect Rs.1,00,000 from the stock broker"
+        },
+        {
+            "shareName": "Currency",
+            "change": "+10"
+        },
+        {
+            "shareName": "Currency",
+            "change": "-10"
+        },
+        {
+            "shareName": "Currency",
+            "change": "+10"
+        },
+        {
+            "shareName": "Currency",
+            "change": "-10"
+        },
+        {
+            "shareName": "Currency",
+            "change": "+10"
+        },
+        {
+            "shareName": "Currency",
+            "change": "-10"
+        }
+    ]
+}
