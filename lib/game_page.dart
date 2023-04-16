@@ -18,7 +18,7 @@ class GamePage extends StatefulWidget {
 }
 
 class _GamePageState extends State<GamePage> {
-  var serverUrl = 'SERVERURL';
+  var serverUrl = 'http://stockmarketgamemanan.centralindia.cloudapp.azure.com';
   late var socket;
   bool roomDoesNotExist = false;
   late var playersInRoom = [];
