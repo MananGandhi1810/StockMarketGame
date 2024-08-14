@@ -152,11 +152,11 @@ class _GamePageState extends State<GamePage> {
       setState(() {
         stockPrices = data['prices'];
       });
-      debugPrint("stockPrices: ${data}");
+      debugPrint("stockPrices: $data");
       socket.emit('whoami');
     });
     socket.on('buyOrSellStockError', (data) {
-      debugPrint("buyOrSellStockError: ${data}");
+      debugPrint("buyOrSellStockError: $data");
       roomErrorDialog(context, data, false);
     });
     socket.on('actionResponse', (data) {
@@ -168,7 +168,7 @@ class _GamePageState extends State<GamePage> {
       socket.emit('whoami');
     });
     socket.on('actionResponseError', (data) {
-      debugPrint("actionResponseError: ${data}");
+      debugPrint("actionResponseError: $data");
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text("${data['action']})")));
       socket.emit('whoami');
@@ -180,7 +180,7 @@ class _GamePageState extends State<GamePage> {
           showRoundOverDialog(context);
         } else {
           ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
+            const SnackBar(
               content: Text(
                   "Round Over. Please wait for the host to start the next round"),
             ),
@@ -202,7 +202,7 @@ class _GamePageState extends State<GamePage> {
         roundOver = false;
       });
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
+        const SnackBar(
           content: Text(
               "A new round has started. New cards have been distributed to you."),
         ),
@@ -214,7 +214,7 @@ class _GamePageState extends State<GamePage> {
         stockPrices = data['prices'];
       });
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
+        const SnackBar(
           content: Text("Stock prices have been updated for the next round."),
         ),
       );
@@ -268,18 +268,18 @@ class _GamePageState extends State<GamePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: IconButton(
-        icon: Icon(Icons.book),
+        icon: const Icon(Icons.book),
         onPressed: () => showGameLogDialog(context),
       ),
       appBar: AppBar(
-        title: Text('Game Page'),
+        title: const Text('Game Page'),
         actions: [
           hasGameStarted
               ? IconButton(
                   onPressed: () {
                     showDashBoardDialog(context);
                   },
-                  icon: Icon(Icons.dashboard))
+                  icon: const Icon(Icons.dashboard))
               : Container()
         ],
       ),
@@ -293,12 +293,12 @@ class _GamePageState extends State<GamePage> {
                   children: [
                     Text(
                       'Hello ${widget.name}, your room id is ${widget.roomId}',
-                      style: TextStyle(fontSize: 20),
+                      style: const TextStyle(fontSize: 20),
                     ),
                     Text("Players in room: ${playersInRoom.length}"),
                     ConstrainedBox(
                       constraints:
-                          BoxConstraints(minHeight: 20, maxHeight: 200),
+                          const BoxConstraints(minHeight: 20, maxHeight: 200),
                       child: Scrollbar(
                         child: ListView.builder(
                           scrollDirection: Axis.vertical,
@@ -324,13 +324,13 @@ class _GamePageState extends State<GamePage> {
                               ),
                               trailing: hasGameStarted
                                   ? IconButton(
-                                      icon: Icon(Icons.menu),
+                                      icon: const Icon(Icons.menu),
                                       onPressed: () {
                                         showPlayerPortfolioDialog(
                                             context, playersInRoom[index]);
                                       },
                                     )
-                                  : Icon(null),
+                                  : const Icon(null),
                             );
                           },
                         ),
@@ -340,7 +340,7 @@ class _GamePageState extends State<GamePage> {
                             thisPlayer['isHost'] &&
                             playersInRoom.length > 1
                         ? ElevatedButton(
-                            child: Text('Start Game'),
+                            child: const Text('Start Game'),
                             onPressed: () {
                               socket
                                   .emit('startGame', {'roomId': widget.roomId});
@@ -350,8 +350,8 @@ class _GamePageState extends State<GamePage> {
                             ? Text(
                                 'Game has started, you have ₹${thisPlayer['money']} and ${3 - thisPlayer['chancesPlayed']} chances')
                             : playersInRoom.length > 1
-                                ? Text('Game has not started')
-                                : Text('Waiting for players'),
+                                ? const Text('Game has not started')
+                                : const Text('Waiting for players'),
                     hasGameStarted &&
                             thisPlayer['cards'] != [] &&
                             thisPlayer['cards'] != null
@@ -360,12 +360,12 @@ class _GamePageState extends State<GamePage> {
                               thisPlayer['isHost']
                                   ? Column(
                                       children: [
-                                        Text("You are the host"),
+                                        const Text("You are the host"),
                                         ElevatedButton(
                                             onPressed: () {
                                               showEndRoundDialog(context);
                                             },
-                                            child: Text("End Round"))
+                                            child: const Text("End Round"))
                                       ],
                                     )
                                   : Container(),
@@ -430,7 +430,7 @@ class _GamePageState extends State<GamePage> {
                                 onPressed: () {
                                   showStockPricesDialog(context, false);
                                 },
-                                child: Text('View Stock Prices'),
+                                child: const Text('View Stock Prices'),
                               ),
                               ElevatedButton(
                                 onPressed: () {
@@ -438,14 +438,14 @@ class _GamePageState extends State<GamePage> {
                                     showBuySellActionDialog(context);
                                   } else {
                                     ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(
+                                      const SnackBar(
                                         content: Text(
                                             'You have used all your chances for this round.'),
                                       ),
                                     );
                                   }
                                 },
-                                child: Text('Buy/Sell'),
+                                child: const Text('Buy/Sell'),
                               ),
                               hasLoanStockMatureCard &&
                                       hasLoanStockMatureCard != null
@@ -456,14 +456,14 @@ class _GamePageState extends State<GamePage> {
                                         } else {
                                           ScaffoldMessenger.of(context)
                                               .showSnackBar(
-                                            SnackBar(
+                                            const SnackBar(
                                               content: Text(
                                                   'You have used all your chances for this round.'),
                                             ),
                                           );
                                         }
                                       },
-                                      child: Text('Loan Stock Mature'),
+                                      child: const Text('Loan Stock Mature'),
                                     )
                                   : Container(),
                             ],
@@ -473,7 +473,7 @@ class _GamePageState extends State<GamePage> {
                 ),
               )
             : isSocketConnectionLoading
-                ? Center(
+                ? const Center(
                     child: CircularProgressIndicator(),
                   )
                 : Container(),
@@ -489,7 +489,7 @@ class _GamePageState extends State<GamePage> {
             title: Text(message),
             actions: [
               TextButton(
-                child: Text("Close"),
+                child: const Text("Close"),
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
@@ -523,7 +523,7 @@ class _GamePageState extends State<GamePage> {
             ),
             actions: [
               TextButton(
-                child: Text("Close"),
+                child: const Text("Close"),
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
@@ -540,19 +540,19 @@ class _GamePageState extends State<GamePage> {
         context: context,
         builder: (context) {
           return AlertDialog(
-            title: Text('Buy/Sell'),
+            title: const Text('Buy/Sell'),
             content: Form(
               key: buyOrSellFormKey,
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Text('Select the action you want to perform'),
+                  const Text('Select the action you want to perform'),
                   DropdownButtonFormField(
                     value: buyOrSell,
                     items: actions
                         .map((label) => DropdownMenuItem(
-                              child: new Text(label),
                               value: label,
+                              child: Text(label),
                             ))
                         .toList(),
                     onChanged: (buyOrSellDropdownValue) {
@@ -574,8 +574,8 @@ class _GamePageState extends State<GamePage> {
                     value: buyOrSellStockName,
                     items: stockNames
                         .map((label) => DropdownMenuItem(
-                              child: new Text(label),
                               value: label,
+                              child: Text(label),
                             ))
                         .toList(),
                     onChanged: (buyOrSellStockNameDropdownValue) {
@@ -596,10 +596,10 @@ class _GamePageState extends State<GamePage> {
                   ),
                   TextFormField(
                     validator: (value) => value!.isEmpty || value == null
-                        ? 'Please enter the amount you want to ${buyOrSell}'
+                        ? 'Please enter the amount you want to $buyOrSell'
                         : null,
                     decoration: InputDecoration(
-                      labelText: 'Enter the amount you want to ${buyOrSell}',
+                      labelText: 'Enter the amount you want to $buyOrSell',
                     ),
                     inputFormatters: [
                       FilteringTextInputFormatter.digitsOnly,
@@ -626,7 +626,7 @@ class _GamePageState extends State<GamePage> {
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
-                child: Text("Cancel"),
+                child: const Text("Cancel"),
               ),
               ElevatedButton(
                 onPressed: () {
@@ -636,7 +636,7 @@ class _GamePageState extends State<GamePage> {
                         buyOrSell, buyOrSellStockName, buyOrSellAmount);
                   }
                 },
-                child: Text("Submit"),
+                child: const Text("Submit"),
               )
             ],
           );
@@ -656,8 +656,8 @@ class _GamePageState extends State<GamePage> {
         context: context,
         builder: (context) {
           return AlertDialog(
-            title: Text('Claim Loan Stock Mature?'),
-            content: Column(
+            title: const Text('Claim Loan Stock Mature?'),
+            content: const Column(
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
@@ -666,7 +666,7 @@ class _GamePageState extends State<GamePage> {
             ),
             actions: [
               TextButton(
-                child: Text("Close"),
+                child: const Text("Close"),
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
@@ -676,7 +676,7 @@ class _GamePageState extends State<GamePage> {
                   Navigator.of(context).pop();
                   claimLoanStockMature();
                 },
-                child: Text("Yes, Claim"),
+                child: const Text("Yes, Claim"),
               )
             ],
           );
@@ -697,8 +697,8 @@ class _GamePageState extends State<GamePage> {
         context: context,
         builder: (context) {
           return AlertDialog(
-            title: Text('Player Portfolio'),
-            content: Container(
+            title: const Text('Player Portfolio'),
+            content: SizedBox(
               width: double.maxFinite,
               child: playerBoughtShares != []
                   ? ListView.builder(
@@ -714,7 +714,7 @@ class _GamePageState extends State<GamePage> {
             ),
             actions: [
               TextButton(
-                child: Text("Close"),
+                child: const Text("Close"),
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
@@ -730,8 +730,8 @@ class _GamePageState extends State<GamePage> {
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: Text('Round Over'),
-          content: Column(
+          title: const Text('Round Over'),
+          content: const Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               Text(
@@ -741,7 +741,7 @@ class _GamePageState extends State<GamePage> {
           ),
           actions: [
             TextButton(
-              child: Text("No, End Game"),
+              child: const Text("No, End Game"),
               onPressed: () {
                 Navigator.of(context).pop();
                 socket.emit("endGame");
@@ -752,7 +752,7 @@ class _GamePageState extends State<GamePage> {
                 Navigator.of(context).pop();
                 socket.emit('startNextRound');
               },
-              child: Text("Yes, Start the Next Round"),
+              child: const Text("Yes, Start the Next Round"),
             )
           ],
         );
@@ -765,18 +765,18 @@ class _GamePageState extends State<GamePage> {
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: Text('Score'),
+          title: const Text('Score'),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               Text(
-                'The game has ended. You have a total balance of ₹${score}. Click ok to see the scoreboard.',
+                'The game has ended. You have a total balance of ₹$score. Click ok to see the scoreboard.',
               ),
             ],
           ),
           actions: [
             TextButton(
-              child: Text("Ok"),
+              child: const Text("Ok"),
               onPressed: () {
                 Navigator.of(context).pop();
               },
@@ -795,8 +795,8 @@ class _GamePageState extends State<GamePage> {
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: Text('Scoreboard'),
-          content: Container(
+          title: const Text('Scoreboard'),
+          content: SizedBox(
             width: double.maxFinite,
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -808,7 +808,7 @@ class _GamePageState extends State<GamePage> {
                     return ListTile(
                       title: Text(
                         '${index + 1}. ${winnerList[index]['username']} with a total balance of ₹${winnerList[index]['totalScore']}',
-                        style: TextStyle(fontSize: 20),
+                        style: const TextStyle(fontSize: 20),
                       ),
                     );
                   },
@@ -818,7 +818,7 @@ class _GamePageState extends State<GamePage> {
           ),
           actions: [
             TextButton(
-              child: Text("Ok, Close Game"),
+              child: const Text("Ok, Close Game"),
               onPressed: () {
                 Navigator.of(context).pop();
               },
@@ -836,8 +836,8 @@ class _GamePageState extends State<GamePage> {
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: Text('Game Log'),
-          content: Container(
+          title: const Text('Game Log'),
+          content: SizedBox(
             width: double.maxFinite,
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -856,7 +856,7 @@ class _GamePageState extends State<GamePage> {
           ),
           actions: [
             TextButton(
-              child: Text("Ok"),
+              child: const Text("Ok"),
               onPressed: () {
                 Navigator.of(context).pop();
               },
@@ -872,8 +872,8 @@ class _GamePageState extends State<GamePage> {
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: Text('End Round?'),
-          content: Column(
+          title: const Text('End Round?'),
+          content: const Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               Text(
@@ -883,7 +883,7 @@ class _GamePageState extends State<GamePage> {
           ),
           actions: [
             TextButton(
-              child: Text("Close"),
+              child: const Text("Close"),
               onPressed: () {
                 Navigator.of(context).pop();
               },
@@ -893,7 +893,7 @@ class _GamePageState extends State<GamePage> {
                 Navigator.of(context).pop();
                 socket.emit('endRoundByHost');
               },
-              child: Text("Yes, End Round"),
+              child: const Text("Yes, End Round"),
             )
           ],
         );
@@ -916,14 +916,14 @@ class _GamePageState extends State<GamePage> {
         context: context,
         builder: (context) {
           return AlertDialog(
-            title: Text('Dashboard'),
-            content: Container(
+            title: const Text('Dashboard'),
+            content: SizedBox(
               width: double.maxFinite,
               child: SingleChildScrollView(
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Text("Players have bought:"),
+                    const Text("Players have bought:"),
                     ListView.builder(
                       shrinkWrap: true,
                       itemCount: dashboardDataBuy.length,
@@ -934,7 +934,7 @@ class _GamePageState extends State<GamePage> {
                         );
                       },
                     ),
-                    Text("Players have sold:"),
+                    const Text("Players have sold:"),
                     ListView.builder(
                       shrinkWrap: true,
                       itemCount: dashboardDataSell.length,
@@ -951,7 +951,7 @@ class _GamePageState extends State<GamePage> {
             ),
             actions: [
               TextButton(
-                child: Text("Ok"),
+                child: const Text("Ok"),
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
