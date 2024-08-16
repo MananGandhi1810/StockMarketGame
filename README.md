@@ -1,16 +1,16 @@
-# stockmarketgame
+# Multiplayer Stock Market Game
 
-A new Flutter project.
+Inspired by the Stock Market, this is a simple simulated multiplayer online game. The game is played in real-time and players can buy and sell stocks to make a profit. The game is built using Flutter, Flask and Socket.io.
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter application.
+- Real-time stock prices
+- Buy and sell stocks
+- Leaderboard
+- Loan Stock Maturing
 
-A few resources to get you started if this is your first Flutter project:
+# Stack
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Flutter
+- Flask
+- Socket.io
